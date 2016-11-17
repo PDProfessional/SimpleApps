@@ -49,7 +49,7 @@ public class SimpleServlet extends HttpServlet {
                         if (message != null) {
                                 if (message instanceof TextMessage) {
                                         TextMessage     msg = (TextMessage) message;
-                                        System.out.println(msg.getText());
+                                        System.out.println("get message: " + msg.getText());
                                 } else {
                                 }
                         }
@@ -84,6 +84,7 @@ public class SimpleServlet extends HttpServlet {
                         boolean transacted = false;
                         session = connection.createQueueSession( transacted, Session.AUTO_ACKNOWLEDGE);
                         sender = session.createSender(q);
+                        System.out.println("put message: " + request.getParameter("message"));
                         TextMessage message = session.createTextMessage(request.getParameter("message"));
                         sender.send(message);
                 } catch (Exception e) {
