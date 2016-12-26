@@ -32,7 +32,7 @@ public class SimpleServlet extends HttpServlet {
 
 
         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-                System.out.println("simple.jms.SimpleServlet.doGet()>");
+                System.out.println("simple.jms.SimpleServlet.doGet() >");
                 QueueReceiver receiver =null;
                 QueueSession session = null;
                 QueueConnection connection = null;
