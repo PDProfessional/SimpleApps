@@ -44,7 +44,7 @@ public class SimpleServlet extends HttpServlet {
         try {
                 InitialContext initCtx = new InitialContext();
                 ds = (DataSource) initCtx.lookup("java:comp/env/jdbc/SimpleDS");
-                con = ds.getConnection();
+                con = ds.getConnection("db2inst1", "ibm1ebiz");
                 stmt = con.createStatement();
                 if(operation.equals("select")) {
                         rs = stmt.executeQuery(sql);
