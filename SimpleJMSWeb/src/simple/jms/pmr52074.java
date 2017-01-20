@@ -49,8 +49,8 @@ public class pmr52074 extends HttpServlet {
                 boolean transacted = true;
                 session = connection.createQueueSession( transacted, Session.AUTO_ACKNOWLEDGE);
                 sender = session.createSender(q);
-                System.out.println("put message: " + request.getParameter("message"));
-                TextMessage message = session.createTextMessage(request.getParameter("message"));
+                System.out.println("put message: Hello");
+                TextMessage message = session.createTextMessage("Hello");
                 sender.send(message);
                 session.commit();
         } catch (Exception e) {
